@@ -21,9 +21,9 @@ class _FirstPageState extends State<FirstPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Ecran 1',
+              'Ecran 1 - Navigator',
               style: TextStyle(
-                color: Colors.green,
+                color: Colors.blue,
                 fontWeight: FontWeight.bold,
                 fontSize: 25,
               ),
@@ -33,7 +33,7 @@ class _FirstPageState extends State<FirstPage> {
                 onPressed: () {
                   Navigator.pushNamed(context, '/route2');
                 },
-                child: const Text("Ecran 2"),
+                child: const Text("Ecran 2 - ScaffoldMessenger"),
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.resolveWith(
                         (states) => Colors.orange))),
@@ -42,7 +42,7 @@ class _FirstPageState extends State<FirstPage> {
               onPressed: () {
                 Navigator.pushNamed(context, '/route3');
               },
-              child: const Text("Ecran 3"),
+              child: const Text("Ecran 3 - AlertDialog"),
               style: ButtonStyle(
                 backgroundColor:
                     MaterialStateProperty.resolveWith((states) => Colors.red),

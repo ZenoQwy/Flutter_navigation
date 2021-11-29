@@ -15,13 +15,14 @@ class _ThirdPageState extends State<ThirdPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: Colors.red,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Ecran 1',
+              'Ecran 3 - AlertDialog',
               style: TextStyle(
                 color: Colors.red,
                 fontWeight: FontWeight.bold,
@@ -30,24 +31,27 @@ class _ThirdPageState extends State<ThirdPage> {
             ),
             const Padding(padding: EdgeInsets.only(bottom: 25)),
             ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/route1');
-              },
-              child: const Text("Ecran 1"),
+              onPressed: () => showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('Titre de l’AlertDialog'),
+                  content: const Text('Description de l’AlertDialog'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.pop(context, 'Quitter'),
+                      child: const Text('Quitter'),
+                    ),
+                    TextButton(
+                      onPressed: () => Navigator.pop(context, 'Ok'),
+                      child: const Text('Ok'),
+                    ),
+                  ],
+                ),
+              ),
+              child: const Text("AlertDialog"),
               style: ButtonStyle(
                 backgroundColor:
-                    MaterialStateProperty.resolveWith((states) => Colors.green),
-              ),
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 10)),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/route2');
-              },
-              child: const Text("Ecran 2"),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.resolveWith(
-                    (states) => Colors.orange),
+                    MaterialStateProperty.resolveWith((states) => Colors.red),
               ),
             ),
           ],
