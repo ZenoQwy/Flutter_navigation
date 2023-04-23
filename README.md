@@ -1,4 +1,4 @@
-# flutter_screen_navigator
+# Para'Dice
 
 A new Flutter project.
 
